@@ -1,0 +1,63 @@
+var timePerImage = 6;
+var timeFading   = 1;
+var images = [
+  'img/kiosk-me-seal-limo.jpg',
+  'img/kiosk-weddingstairs.jpg',
+  'img/kiosk-sealwaving.jpg',
+  'img/kiosk-aisle.jpg',
+  'img/kiosk1.jpg',
+  'img/kiosk2.jpg',
+  'img/kiosk3.jpg',
+  'img/kiosk4.jpg',
+  'img/kiosk_weddingceiling.jpg',
+  'img/kiosk5.jpg',
+  'img/kiosk7.jpg',
+  'img/kiosk8.jpg',
+  'img/kiosk9.jpg',
+  'img/kiosk-cranky.jpg',
+  'img/kiosk-dove.jpg',
+  'img/kiosk_sealdeerfield.jpg',
+  'img/kiosk-eurekast.jpg',
+  'img/seal-rainforest.jpg',
+  'img/kiosk-gingersealmom.jpg',
+  'img/kiosk_pier39.jpg',
+  'img/kiosk_sealsf.jpg',
+  'img/kiosk-seal-laundry.jpg',
+  'img/kiosk-seal.jpg',
+  'img/kiosk_seattlebreakfast.jpg',
+  'img/kiosk_sealwhale.jpg',
+  'img/kiosk_sealrockglasses.jpg',
+  'img/kiosk_sealrocks.jpg',
+  'img/kiosk-babyseal.jpg',
+  'img/kiosk-sealkid.jpg'
+];
+
+var timePerImageMs = timePerImage * 1000;
+var timeFadingMs   = timeFading * 1000;
+
+$(document).ready(function() {
+  var img1 = $('#img1');
+  var img2 = $('#img2');
+  doAnimationLoop(img1, img2);
+  setInterval(function(){ doAnimationLoop(img1, img2); }, timePerImageMs);
+});
+
+function doAnimationLoop(img1, img2) {
+  var currentImage = images.shift();
+  images.push(currentImage);
+
+  if (img1.is(':visible')) {
+    // set img2 to the new pic, fade out img1
+
+    img2.attr('src', currentImage);
+    img2.show();
+    img1.fadeOut(timeFadingMs);
+  } else {
+    // set img1 to the new pic, fade in img1
+    img1.attr('src', currentImage);
+    img1.fadeIn(timeFadingMs);
+  }
+
+  // img1.attr('src', currentImage);
+  // img1.show();
+}
