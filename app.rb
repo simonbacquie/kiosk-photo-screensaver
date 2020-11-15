@@ -12,4 +12,9 @@ get '/js/screensaver.js' do
   erb :'screensaver.js'
 end
 
+get '/css/style.css' do
+  content_type :css
+  erb :'style.css'
+end
+
 end

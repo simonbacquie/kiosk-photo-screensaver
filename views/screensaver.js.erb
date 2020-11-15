@@ -19,12 +19,12 @@ function doAnimationLoop(img1, img2) {
   if (img1.is(':visible')) {
     // set img2 to the new pic, fade out img1
 
-    img2.attr('src', currentImage);
+    img2.css('background-image', "url('" + currentImage + "')");
     img2.show();
     img1.fadeOut(timeFadingMs);
   } else {
     // set img1 to the new pic, fade in img1
-    img1.attr('src', currentImage);
+    img1.css('background-image', "url('" + currentImage + "')");
     img1.fadeIn(timeFadingMs);
   }
 
