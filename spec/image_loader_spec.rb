@@ -21,7 +21,7 @@ describe ImageLoader do
 
   context 'variables passed in' do
     it 'chooses default values when no values are passed in' do
-      @loader = ImageLoader.new('', '', '')
+      @loader = ImageLoader.new(nil, nil, nil)
       expect(@loader.method).to eq ImageLoader::DEFAULT_METHOD
       expect(@loader.sort).to eq ImageLoader::DEFAULT_SORT
       expect(@loader.stretch).to eq ImageLoader::DEFAULT_STRETCH

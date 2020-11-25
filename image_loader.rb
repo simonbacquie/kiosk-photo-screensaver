@@ -15,13 +15,13 @@ class ImageLoader
       @method = DEFAULT_METHOD
     end
 
-    if ['asc', 'desc'].include?(sort.downcase)
+    if ['asc', 'desc'].include?(sort.to_s.downcase)
       @sort = sort.downcase
     else
       @sort = DEFAULT_SORT
     end
 
-    if ['fill', 'fit'].include?(stretch.downcase)
+    if ['fill', 'fit'].include?(stretch.to_s.downcase)
       @stretch = stretch.downcase
     else
       @stretch = DEFAULT_STRETCH
