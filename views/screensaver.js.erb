@@ -1,6 +1,6 @@
 var timePerImage = 6;
 var timeFading   = 1;
-var images = <%= Dir['public/img/*'].sort.map{|x| x.gsub('public/', '') }.to_json %>;
+var images = <%= @image_loader.load.to_json %>;
 
 var timePerImageMs = timePerImage * 1000;
 var timeFadingMs   = timeFading * 1000;
@@ -27,7 +27,4 @@ function doAnimationLoop(img1, img2) {
     img1.css('background-image', "url('" + currentImage + "')");
     img1.fadeIn(timeFadingMs);
   }
-
-  // img1.attr('src', currentImage);
-  // img1.show();
 }
