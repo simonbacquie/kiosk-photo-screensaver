@@ -1,9 +1,7 @@
-var timePerImage = 6;
-var timeFading   = 1;
 var images = <%= @image_loader.load.to_json %>;
 
-var timePerImageMs = timePerImage * 1000;
-var timeFadingMs   = timeFading * 1000;
+var timePerImageMs = <%= @time_settings.stop_time %>;
+var timeFadingMs   = <%= @time_settings.transition_time %>;
 
 $(document).ready(function() {
   var img1 = $('#img1');

@@ -1,0 +1,9 @@
+MODE=name
+# MODE=created
+# MODE=random
+SORT=asc
+# SORT=desc
+STRETCH=fit
+# STRETCH=fill
+STOP_TIME=6000
+TRANSITION_TIME=1000

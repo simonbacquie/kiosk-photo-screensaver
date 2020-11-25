@@ -1,7 +1,7 @@
 class TimeSettings
 
-  DEFAULT_STOP_TIME = 0;
-  DEFAULT_TRANSITION_TIME = 0;
+  DEFAULT_STOP_TIME = 6000;
+  DEFAULT_TRANSITION_TIME = 1000;
 
   attr_accessor :stop_time, :transition_time
 

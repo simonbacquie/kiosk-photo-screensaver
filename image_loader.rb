@@ -1,7 +1,6 @@
 class ImageLoader
 
   IMAGES_PATH = File.dirname(__FILE__) + '/public/img/'
-  require 'pry'; binding.pry
   DEFAULT_METHOD  = 'by_name'
   DEFAULT_SORT    = 'asc'
   DEFAULT_STRETCH = 'fit'
@@ -30,19 +29,19 @@ class ImageLoader
   end
 
   def by_name
-    files = Dir["#{IMAGES_PATH}*"].sort.map{|x| x.gsub('public/', '') }
+    files = Dir["#{IMAGES_PATH}*"].sort.map{|x| '/img/' + File.basename(x) }
     files.reverse! if @sort == 'desc'
     files
   end
 
   def by_created
-    files = Dir["#{IMAGES_PATH}*"].sort_by{ |f| File.mtime(f) }.map{|x| x.gsub('public/', '') }
+    files = Dir["#{IMAGES_PATH}*"].sort_by{ |f| File.mtime(f) }.map{|x| '/img/' + File.basename(x) }
     files.reverse! if @sort == 'desc'
     files
   end
 
   def by_random
-    files = Dir["#{IMAGES_PATH}*"].sort.map{|x| x.gsub('public/', '') }.shuffle
+    files = Dir["#{IMAGES_PATH}*"].sort.map{|x| '/img/' + File.basename(x) }.shuffle
   end
 
   def load

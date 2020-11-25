@@ -1,23 +1,18 @@
 require File.expand_path("../../image_loader.rb", __FILE__)
 require 'spec_helper'
 require 'fakefs/spec_helpers'
-require 'pry'
-
-Pry.config.input = STDIN
-Pry.config.output = STDOUT
 
 describe ImageLoader do
   before :each do
-    # FakeFS make all the files
-      FakeFS.activate!
-      FileUtils.mkdir_p(ImageLoader::IMAGES_PATH)
-      FileUtils.touch(ImageLoader::IMAGES_PATH + 'e.jpg')
-      FileUtils.touch(ImageLoader::IMAGES_PATH + 'g.jpg')
-      FileUtils.touch(ImageLoader::IMAGES_PATH + 'f.jpg')
-      FileUtils.touch(ImageLoader::IMAGES_PATH + 'd.jpg')
-      FileUtils.touch(ImageLoader::IMAGES_PATH + 'c.jpg')
-      FileUtils.touch(ImageLoader::IMAGES_PATH + 'a.jpg')
-      FileUtils.touch(ImageLoader::IMAGES_PATH + 'b.jpg')
+    FakeFS.activate!
+    FileUtils.mkdir_p(ImageLoader::IMAGES_PATH)
+    FileUtils.touch(ImageLoader::IMAGES_PATH + 'e.jpg')
+    FileUtils.touch(ImageLoader::IMAGES_PATH + 'g.jpg')
+    FileUtils.touch(ImageLoader::IMAGES_PATH + 'f.jpg')
+    FileUtils.touch(ImageLoader::IMAGES_PATH + 'd.jpg')
+    FileUtils.touch(ImageLoader::IMAGES_PATH + 'c.jpg')
+    FileUtils.touch(ImageLoader::IMAGES_PATH + 'a.jpg')
+    FileUtils.touch(ImageLoader::IMAGES_PATH + 'b.jpg')
   end
 
   after :each do
