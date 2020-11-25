@@ -36,5 +36,9 @@ docker build -t kiosk-photo-screensaver . && docker run -p 0.0.0.0:4567:4567/tcp
 
 ```
 bundle install
-MODE=RANDOM bundle exec rackup -p 4567
+MODE=random bundle exec rackup -p 4567
 ```
+
+## Tests
+
+`bundle exec rspec`
